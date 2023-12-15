@@ -1,7 +1,32 @@
+"use client"
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SendIcon from '@mui/icons-material/Send';
 
+import React, { FormEvent } from 'react';
+
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
 const Form = () => {
+  const router = useRouter();
+    
+  const POST = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget)
+    
+    if (formData.get("email") == "") {
+      alert("Name must be filled out");
+    }
+    else {
+      await axios.post('http://localhost:5000/save', {"email": formData.get('email')}).then((res) => {
+        router.push('/perfect');
+      }).catch((err) => {
+        console.log(err.message);
+        alert(err.message);
+      });
+    }
+  }
+
   return (
     <div className='form-bg w-full sm:rounded-[30px] rounded-[10px] sm:p-[35px] p-[20px] max-w-full'>
       <div className='sm:mb-8 mb-3'>
@@ -9,7 +34,7 @@ const Form = () => {
         <p className='sm:text-[16px] text-[8px] font-medium sm:leading-[20px] leading-[12px] tracking-[-0.16px]]'>Sign up to get early access</p>
       </div>
 
-      <form method="" className='flex justify-between gap-2'>
+      <form autoComplete="off" onSubmit={POST} className='flex justify-between gap-2'>
         <div className='relative flex items-center w-full'>
             <input className='form-input rounded-[8px] sm:rounded-[20px] sm:text-[16px] text-[10px] font-normal sm:leading-[20px] leading-[10px] tracking-[-0.16px] sm:px-12 px-8 sm:py-3 py-2 text-black w-full h-full max-w-[594px]' type="email" name="email" placeholder="Your email" id="" />
             <MailOutlineIcon className='mailIcon' />

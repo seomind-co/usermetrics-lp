@@ -7,6 +7,8 @@ import Twitter from "../assets/img/twitter.svg";
 import Whatsapp from "../assets/img/whatsapp.svg";
 import Telegram from "../assets/img/telegram.svg";
 
+
+
 const Share = () => {
   return (
     <div className='share rounded-[20px] flex flex-col items-center justify-center w-full p-6'>
