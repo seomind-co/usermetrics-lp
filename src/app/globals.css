@@ -85,3 +85,27 @@ body {
 .waitlistStats {
   border: 1px solid rgba(255, 255, 255, 0.80);
 }
+
+.copyButton {
+  border: 1px solid #FFF;
+  background-color: rgba(217, 217, 217, 0.30);
+  cursor: pointer;
+}
+
+.share {
+  border: 1px solid transparent;
+  position: relative;
+}
+.share::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit; 
+  padding: 1px; 
+  background:linear-gradient(to top,rgba(255, 255, 255, 0.3), transparent); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}

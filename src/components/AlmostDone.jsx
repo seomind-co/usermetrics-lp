@@ -3,9 +3,12 @@ import UserMetrics from "@/components/UserMetrics";
 
 const AlmostDone = () => {
   return (
-    <div className='flex flex-col justify-around items-center h-full gap-[6vh] p-12'>
+    <div className='flex flex-col justify-around items-center h-full p-12'>
+      <div className='mb-[80px]'>
+        <UserMetrics />
+      </div>
         
-        <h2 className='sm:text-[64px] text-[24px] font-semibold sm:leading-[59.5px] leading-[24px] tracking-[-0.48px] opacity-85 sm:max-w-[611px] max-w-[276px] text-center'>
+        <h2 className='mb-[40px] sm:text-[64px] text-[24px] font-semibold sm:leading-[59.5px] leading-[24px] tracking-[-0.48px] opacity-85 sm:max-w-[611px] max-w-[276px] text-center'>
             Almost Done!
         </h2>
         

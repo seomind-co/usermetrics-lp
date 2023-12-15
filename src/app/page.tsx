@@ -2,16 +2,12 @@ import Form from '@/components/Form';
 import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import Metric from "@/components/Metric";
-import UserMetrics from '@/components/UserMetrics';
 
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen w-full items-center justify-between">
-      <div className='flex flex-col items-center justify-around h-full container mx-auto max-w-3xl'>
-        <UserMetrics />
-      </div>
-
+      <div />
       <div className='flex flex-col items-center justify-around h-full container mx-auto max-w-3xl'>
         <Title />
       </div>
