@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import UserMetrics from '@/components/UserMetrics';
 import Footer from '@/components/Footer';
@@ -6,6 +6,9 @@ import WaitlistStats from '@/components/WaitlistStats';
 import Share from '@/components/Share';
 
 const Congrats = () => {
+
+  // useEffect();
+
   return (
     <main className="flex flex-col min-h-screen w-full items-center justify-between">
         <div />
