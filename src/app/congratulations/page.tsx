@@ -15,6 +15,7 @@ const Congrats = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState(undefined);
   const [number, setNumber] = useState(0);
+  const [place, setPlace] = useState(0);
   const params = useSearchParams();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Congrats = () => {
         setEmail(data.email);
         setIsLoading(false);
         setNumber(data.number);
+        setPlace(data.place);
       })
       .catch((err) => {
         console.log(err.message);
@@ -47,7 +49,7 @@ const Congrats = () => {
                 <div className='mb-[5vh]'>
                     <UserMetrics  />
                 </div>
-                <WaitlistStats numbers={number} />
+                <WaitlistStats numbers={number} place={place} />
               </div>
   
               <div className='container mx-auto max-w-xl sm:px-0 px-5'>

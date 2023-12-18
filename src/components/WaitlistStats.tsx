@@ -8,7 +8,7 @@ const WaitlistStats = (props : any) => {
         </p>
         <hr />
         <p className='py-6'>
-            Your place in the line is <span className='font-bold'>{props.numbers}</span>
+            Your place in the line is <span className='font-bold'>{props.place}</span>
         </p>
         <p className='pb-3'>
             Total waitlist member is <span className='font-bold'>{props.numbers}</span>

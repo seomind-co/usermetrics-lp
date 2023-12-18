@@ -9,6 +9,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'User Metrics',
   description: 'The best detailed dashboard for any community | User Metrics Landing Page',
+  keywords: ["dashboard", "community management", "best", "detailed", "community", "management tool", "tool", "customized"],
+  openGraph: {
+    title: "User Metrics",
+    description: "The best detailed dashboard for any community | User Metrics Landing Page",
+    url: "http://usermetrics.co",
+    siteName: "User Metrics",
+    images: [
+      {
+        url: "https://6580bb8866e83a20252b6bb7--moonlit-palmier-e79a1e.netlify.app/mdi.png",
+        width: 800,
+        height: 600,
+      },
+    ]
+  }
 }
 
 export default function RootLayout({
