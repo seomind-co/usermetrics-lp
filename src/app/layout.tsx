@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className='flex items-center justify-center'>
-          <Image className='bg lg:left-[60px] pointer-events-none' src={Bg} alt=''  />
+          <Image className='bg pointer-events-none' src={Bg} alt=''  />
         </div>
         <div className='relative z-10'>
           {children}
