@@ -6,6 +6,7 @@ import React, { FormEvent, useState } from 'react';
 
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { saveEmail } from "../api"
 
 const Form = () => {
   const router = useRouter();
@@ -19,7 +20,7 @@ const Form = () => {
       alert("Name must be filled out");
     }
     else {
-      await axios.post('http://localhost:5000/save', {"email": formData.get('email')}).then((res) => {
+      await saveEmail(formData.get("email")).then((res) => {
         router.push('/perfect');
       }).catch((err) => {
         console.log(err.message);
