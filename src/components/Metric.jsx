@@ -5,9 +5,23 @@ import React, { useEffect, useState } from 'react'
 const Metric = () => {
   const [count, setCount] = useState(-1);
 
+  // useEffect(() => {
+  //   const getData = () => {
+  //     getPeopleNumber()
+  //     .then(({ data }) => {
+  //       console.log(data);
+  //       setCount(data.number);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //       setCount(-1);
+  //     });
+  //   }
+  //   return () => getData();
+  // }, []);
+
   useEffect(() => {
-    const getData = () => {
-      getPeopleNumber()
+    getPeopleNumber()
       .then(({ data }) => {
         console.log(data);
         setCount(data.number);
@@ -16,9 +30,8 @@ const Metric = () => {
         console.log(err.message);
         setCount(-1);
       });
-    }
-    return () => getData();
-  }, [])
+  }, []);
+  
   return (
     <div>
       {
