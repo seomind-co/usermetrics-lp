@@ -18,22 +18,35 @@ const Congrats = () => {
   const [place, setPlace] = useState(0);
   const params = useSearchParams();
 
+  // useEffect(() => {
+  //   const getData = () => {
+  //     verifyEmail(params.get("email"))
+  //     .then(({ data }) => {
+  //       setEmail(data.email);
+  //       setIsLoading(false);
+  //       setNumber(data.number);
+  //       setPlace(data.place);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //       alert("Your email cannot verified. Please try again.");
+  //     });
+  //   }
+  //   return () => getData();
+  // }, []);
+
   useEffect(() => {
-    // console.log(params.get("email"));
-    const getData = () => {
-      verifyEmail(params.get("email"))
-      .then(({ data }) => {
-        setEmail(data.email);
-        setIsLoading(false);
-        setNumber(data.number);
-        setPlace(data.place);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        alert("Your email cannot verified. Please try again.");
-      });
-    }
-    return () => getData();
+    verifyEmail(params.get("email"))
+    .then(({ data }) => {
+      setEmail(data.email);
+      setIsLoading(false);
+      setNumber(data.number);
+      setPlace(data.place);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      alert("Your email cannot verified. Please try again.");
+    });
   }, []);
 
   return (
