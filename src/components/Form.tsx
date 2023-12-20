@@ -20,7 +20,6 @@ const Form = () => {
       alert("Name must be filled out");
     }
     else {
-      router.push('/perfect');
       await saveEmail(formData.get("email")).then(() => {
         sendNotification(formData.get("email"))
         .catch((err) => {
@@ -31,6 +30,7 @@ const Form = () => {
         console.log(err.message);
       });
 
+      router.push('/perfect');
     }
   }
 
