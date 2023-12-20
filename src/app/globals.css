@@ -36,6 +36,7 @@ body {
   /* min-height: 1440px; */
   min-width: 1591px;
   filter: blur(150px);
+  -webkit-filter: blur(150px);
 }
 
 @media screen and (min-width: 1500px) {
