@@ -30,6 +30,8 @@ const Form = () => {
         console.log(err.message);
       });
 
+      const email: FormDataEntryValue | null = formData.get("email");
+      localStorage.setItem("email", JSON.stringify({"email": email?.toString()}));
       router.push('/perfect');
     }
   }

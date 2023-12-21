@@ -1,7 +1,19 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import UserMetrics from "@/components/UserMetrics";
+import { useRouter } from 'next/navigation';
 
 const AlmostDone = () => {
+  const [email, setEmail] = useState("");
+
+  const router = useRouter();
+  useEffect(() => {
+    setEmail(JSON.parse(localStorage.getItem("email")));
+  }, []);
+
+  if (email == null) {
+    router.push("/");
+  }
   return (
     <div className='flex flex-col justify-around items-center h-full p-12'>
       <div className='mb-[80px]'>
@@ -13,7 +25,7 @@ const AlmostDone = () => {
         </h2>
         
         <h3 className='sm:text-[18px] text-[10px] text-center font-normal leading-[25px] tracking-[-0.18px] sm:max-w-[480px] max-w-[260px]'>
-            Click the verification link sent to <span className='font-bold'>fergul100@gmail.com</span> to verify your waitlist spot.
+            Click the verification link sent to <span className='font-bold'>{email?.email}</span> to verify your waitlist spot.
         </h3>
 
     </div>

@@ -30,6 +30,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -37,7 +38,7 @@ export default function RootLayout({
           <Image className='bg pointer-events-none' src={Bg} alt=''  />
         </div>
         <div className='relative z-10'>
-          {children}
+            {children}
         </div>
       </body>
     </html>
