@@ -11,8 +11,6 @@ const Form = () => {
   const router = useRouter();
   const [isFocus, setIsFocus] = useState(false);
   const [isActive, setIsActive] = useState(false);
-
-  const [limit, setLimit] = useState(0);
   
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
@@ -36,11 +34,7 @@ const Form = () => {
     if (formData.get("email") == "") {
       alert("Name must be filled out");
     }
-    else if(limit >= 1) {
-      return;
-    }
     else {
-      setLimit(limit + 1);
       await saveEmail(formData.get("email")).then(() => {
         sendNotification(formData.get("email"))
         .catch((err) => {
@@ -53,7 +47,6 @@ const Form = () => {
 
       const email: FormDataEntryValue | null = formData.get("email");
       localStorage.setItem("email", JSON.stringify({"email": email?.toString()}));
-      setLimit(0);
       router.push('/perfect');
     }
   }
