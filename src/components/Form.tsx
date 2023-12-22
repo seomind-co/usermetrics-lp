@@ -53,6 +53,7 @@ const Form = () => {
 
       const email: FormDataEntryValue | null = formData.get("email");
       localStorage.setItem("email", JSON.stringify({"email": email?.toString()}));
+      setLimit(0);
       router.push('/perfect');
     }
   }
