@@ -47,7 +47,6 @@ const Congrats = () => {
     })
     .catch((err) => {
       console.log(err.message);
-      alert("Your email cannot verified. Please try again.");
     });
   }, []);
 
