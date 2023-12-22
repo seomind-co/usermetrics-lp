@@ -12,7 +12,6 @@ const Form = () => {
   const [isFocus, setIsFocus] = useState(false);
   const [isActive, setIsActive] = useState(false);
   
-  const [limit, setLimit] = useState(0);
   
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
@@ -23,7 +22,6 @@ const Form = () => {
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         setTimeout(() => setIsActive(false), 150);
-        
       }
     })
   });
@@ -35,30 +33,18 @@ const Form = () => {
     if (formData.get("email") == "") {
       alert("Name must be filled out");
     }
-    else if (limit == 1) {
-      setLimit(limit + 1);
-      await sendNotification(formData.get("email"))
-      .catch((err) => {
-        console.log(err.message);
-      });
-      router.push('/perfect');
-    }
     else {
-      setLimit(limit + 1);
-      await saveEmail(formData.get("email")).then(() => {
-        sendNotification(formData.get("email"))
-        .catch((err) => {
-          console.log(err.message);
-        });
-      })
+      router.push('/perfect');
+      await saveEmail(formData.get("email"))
       .catch((err) => {
         console.log(err.message);
       });
 
       const email: FormDataEntryValue | null = formData.get("email");
       localStorage.setItem("email", JSON.stringify({"email": email?.toString()}));
-      router.push('/perfect');
     }
+
+    
   }
 
   return (
