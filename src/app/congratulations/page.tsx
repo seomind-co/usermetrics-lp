@@ -65,7 +65,7 @@ const Congrats = () => {
                 <WaitlistStats numbers={number} place={place} />
               </div>
   
-              <div className='container mx-auto max-w-xl sm:px-0 px-5'>
+              <div className='container mx-auto max-w-lg sm:px-0 px-5'>
                 <Share email={email} />
               </div>
   

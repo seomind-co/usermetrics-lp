@@ -38,29 +38,36 @@ const Share = (props : any) => {
         updateShare(props.email).then(({ data }) => console.log(data));
     }
   return (
-    <div className='share rounded-[20px] flex flex-col items-center justify-center w-full p-6'>
-        <p className='sm:text-[16px] text-[10px] font-semibold leading-[20px] tracking-[-0.16px] mb-[25px]'>
-            Share your link to move up the waitlist
+    <div className='share rounded-[20px] flex flex-col items-center justify-center gap-5 w-full p-6'>
+        <p className='sm:text-[16px] text-[10px] font-semibold leading-[20px] tracking-[-0.16px] mb-3'>
+            Invite your friends to move up in line.
         </p>
 
-        <input 
-            disabled 
-            type="text" 
-            name="link" 
-            value={`https://usermetrics.co/congratulations?email=${props.email}`}
-            className="shareInput sm:rounded-[20px] rounded-[10px] p-4 w-full mb-3 sm:text-[12px] text-[8px]" 
-        />
+        <div className='relative w-full flex items-center mb-2'>
+            <input 
+                disabled 
+                type="text" 
+                name="link" 
+                value={`https://usermetrics.co/`}
+                className="shareInput sm:rounded-[20px] rounded-[10px] p-4 w-full sm:text-[14px] text-[8px]" 
+            />
+            <a type="button" onClick={handleCopy} className='cool-bg absolute right-4 cursor-pointer sm:text-[16px] text-[10px] font-bold leading-[20px] tracking-[-0.16px]'>
+                {isCoppied ? "Copied" : "Copy"}
+            </a>
+        </div>
 
-        <a type="button" onClick={handleCopy} className={`copyButton ${isCoppied ? "bg-[#17C964]" : "bg-[#d9d9d94d]"} sm:py-3.5 py-1.5 flex items-center justify-center w-full text-center mb-7 sm:rounded-[20px] rounded-[10px] sm:text-[14px] text-[8px]`}>
+        {/* <a type="button" onClick={handleCopy} className={`copyButton ${isCoppied ? "bg-[#17C964]" : "bg-[#d9d9d94d]"} sm:py-3.5 py-1.5 flex items-center justify-center w-full text-center mb-7 sm:rounded-[20px] rounded-[10px] sm:text-[14px] text-[8px]`}>
             {
                 isCoppied ? "Coppied" : "Copy Link"
             }
             {
                 isCoppied ? <Image src={Clipped} alt='copy to clipboard' className='sm:ml-2 ml-0.5 sm:h-auto h-5' /> : <Image src={Clipboard} alt='copy to clipboard' className='sm:ml-2 ml-0.5 sm:h-auto h-5' />
             }
-        </a>
+        </a> */}
 
-        <div className='flex justify-center items-center gap-2 w-full'>
+        <p>Share</p>
+
+        <div className='flex justify-center items-center gap-4 w-full'>
             <a className='cursor-pointer' type="button" onClick={handleLinkedin}>
                 <LinkedinShareButton url={'http://usermetrics.co'}>
                     <Image className='sm:h-auto h-8' src={Linkedin} alt='Linkedin' />

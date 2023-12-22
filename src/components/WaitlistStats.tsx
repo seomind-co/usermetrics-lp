@@ -2,16 +2,15 @@ import React from 'react';
 
 const WaitlistStats = (props : any) => {
   return (
-    <div className='waitlistStats sm:rounded-[20px] rounded-[12px] sm:text-[16px] text-[10px] p-6 sm:min-w-[328px]'>
-        <p className='text-center pb-6'>
-            You are on the <span className='font-bold'>waitlist 🎉</span>
+    <div className='sm:text-[52px] text-[24px]'>
+        <p className='text-center pb-3 font-semibold'>
+            Awesome!
         </p>
-        <hr />
-        <p className='py-6'>
-            Your place in the line is <span className='font-bold'>{props.place}</span>
+        <p className='font-semibold sm:leading-[58px] leading-[32px] text-center'>
+        You are <span className='cool-bg'>#{props.place}</span> on 
         </p>
-        <p className='pb-3'>
-            Total waitlist member is <span className='font-bold'>{props.numbers}</span>
+        <p className='font-semibold sm:leading-[58px] leading-[32px] text-center'>
+        the User Metrics Waitlist!
         </p>
     </div>
   )
