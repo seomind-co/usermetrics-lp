@@ -13,11 +13,17 @@ const Form = () => {
   const [isActive, setIsActive] = useState(false);
   
   useEffect(() => {
-    window.addEventListener("keypress", (e) => {
+    window.addEventListener("keydown", (e) => {
       if (e.key == "Enter") {
         setIsActive(true);
       }
     });
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        setTimeout(() => setIsActive(false), 150);
+        
+      }
+    })
   });
   const POST = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,7 +33,6 @@ const Form = () => {
       alert("Name must be filled out");
     }
     else {
-      setIsActive(false);
       await saveEmail(formData.get("email")).then(() => {
         sendNotification(formData.get("email"))
         .catch((err) => {
