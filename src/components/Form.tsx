@@ -5,7 +5,7 @@ import SendIcon from '@mui/icons-material/Send';
 import React, { FormEvent, useEffect, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
-import { saveEmail, sendNotification } from "../api"
+import { saveEmail } from "../api"
 
 const Form = () => {
   const router = useRouter();
@@ -34,14 +34,14 @@ const Form = () => {
       alert("Name must be filled out");
     }
     else {
-      router.push('/perfect');
       await saveEmail(formData.get("email"))
       .catch((err) => {
         console.log(err.message);
       });
-
+      
       const email: FormDataEntryValue | null = formData.get("email");
       localStorage.setItem("email", JSON.stringify({"email": email?.toString()}));
+      router.push('/perfect');
     }
 
     
