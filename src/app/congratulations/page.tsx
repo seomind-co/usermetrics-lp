@@ -10,6 +10,8 @@ import Loading from "@/app/congratulations/loading";
 import { useSearchParams } from 'next/navigation';
 import { verifyEmail } from '@/api';
 
+import Typeform from "@/components/Typeform";
+
 
 const Congrats = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -68,6 +70,8 @@ const Congrats = () => {
               <div className='container mx-auto max-w-lg sm:px-0 px-5'>
                 <Share email={email} />
               </div>
+
+              <Typeform />
   
               <Footer />
             </main>
