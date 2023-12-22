@@ -7,7 +7,7 @@ import Twitter from "../assets/img/xLogo.png";
 const Footer = () => {
   return (
     <div className='flex justify-between items-center w-full py-2'>
-      <p className='absolute text-start left-5 bottom-2 opacity-25 sm:text-[13px] text-[8px] font-medium leading-[20px] tracking-[-0.13px]'>User Metrics @ 2024</p>
+      <p className='absolute text-start left-5 bottom-2 opacity-30 sm:text-[13px] text-[8px] font-medium leading-[20px] tracking-[-0.13px]'>User Metrics @ 2024</p>
 
       <div className='absolute w-full text-center sm:bottom-2 bottom-8 flex justify-center items-center gap-2'>
         <p className='opacity-25 sm:text-[13px] text-[8px] font-medium leading-[20px] tracking-[-0.13px]'>Our social media:</p>
