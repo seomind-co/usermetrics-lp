@@ -48,8 +48,8 @@ const Share = (props : any) => {
                 disabled 
                 type="text" 
                 name="link" 
-                value={`https://usermetrics.co/`}
-                className="shareInput sm:rounded-[20px] rounded-[10px] p-4 w-full sm:text-[14px] text-[8px]" 
+                value={`https://usermetrics.co/?invite`}
+                className="shareInput sm:rounded-[20px] rounded-[10px] p-4 w-full sm:text-[14px] text-[8px] border-2 border-white/80" 
             />
             <a type="button" onClick={handleCopy} className='cool-bg absolute right-4 cursor-pointer sm:text-[16px] text-[10px] font-bold leading-[20px] tracking-[-0.16px]'>
                 {isCoppied ? "Copied" : "Copy"}

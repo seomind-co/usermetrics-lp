@@ -2,7 +2,7 @@
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SendIcon from '@mui/icons-material/Send';
 
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 import { saveEmail, sendNotification } from "../api"
@@ -10,16 +10,24 @@ import { saveEmail, sendNotification } from "../api"
 const Form = () => {
   const router = useRouter();
   const [isFocus, setIsFocus] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   
-    
+  useEffect(() => {
+    window.addEventListener("keypress", (e) => {
+      if (e.key == "Enter") {
+        setIsActive(true);
+      }
+    });
+  });
   const POST = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget)
+    const formData = new FormData(event.currentTarget);
     
     if (formData.get("email") == "") {
       alert("Name must be filled out");
     }
     else {
+      setIsActive(false);
       await saveEmail(formData.get("email")).then(() => {
         sendNotification(formData.get("email"))
         .catch((err) => {
@@ -49,7 +57,7 @@ const Form = () => {
             <MailOutlineIcon className='mailIcon' />
         </div>
 
-        <button type="submit" className={`sendButton active:bg-white/20 active:opacity-100 bg-transparent opacity-50 hover:opacity-100 transition-all duration-300 rounded-[8px] sm:rounded-[20px] sm:px-8 p-4 flex justify-center items-center`}><SendIcon className='sendIcon' /></button>
+        <button type="submit" className={`sendButton ${isActive ? "bg-white/60 opacity-100" : ""} active:bg-white/20 active:opacity-100 bg-transparent opacity-50 hover:opacity-100 transition-all duration-300 rounded-[8px] sm:rounded-[20px] sm:px-8 p-4 flex justify-center items-center`}><SendIcon className='sendIcon' /></button>
       </form>
     </div>
   )

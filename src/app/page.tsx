@@ -2,6 +2,7 @@ import Form from '@/components/Form';
 import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import Metric from "@/components/Metric";
+import { useEffect } from 'react';
 
 
 export default function Home() {
